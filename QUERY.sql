@@ -13,7 +13,7 @@ WHERE `cfu` > 10*/
 #3
 /*SELECT COUNT(*) as `30_years_students`
 FROM `students`
-WHERE YEAR(`date_of_birth`) < 1995*/
+WHERE timestampdiff(YEAR, `date_of_birth`, CURDATE()) > 30*/
 
 #4
 /*SELECT COUNT(*) 
