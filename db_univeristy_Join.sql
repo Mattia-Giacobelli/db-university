@@ -62,6 +62,23 @@ JOIN `departments`
 ON `departments`.`id` = `degrees`.`department_id`
 WHERE `departments`.`name` = "Dipartimento di Matematica"*/
 
+#7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, 
+# stampando anche il voto massimo.
+/*SELECT COUNT(`exam_student`.`vote`), MAX(`exam_student`.`vote`)
+FROM `exam_student`
+JOIN `exams`
+ON `exams`.`id` = `exam_student`.`exam_id`
+JOIN `students`
+ON `students`.`id` = `exam_student`.`student_id`
+GROUP BY `exam_student`.`student_id`*/
 
-
+# Successivamente,filtrare i tentativi con voto minimo 18.
+/*SELECT COUNT(`exam_student`.`vote`) AS `tryes`, `students`.`id`, `students`.`surname`, `students`.`name`, MAX(`exam_student`.`vote`)
+FROM `exam_student`
+JOIN `exams`
+ON `exams`.`id` = `exam_student`.`exam_id`
+JOIN `students`
+ON `students`.`id` = `exam_student`.`student_id`
+WHERE `exam_student`.`vote` > 18
+GROUP BY `students`.`id`, `exams`.`id`*/
 
